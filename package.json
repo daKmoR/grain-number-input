@@ -1,0 +1,22 @@
+{
+  "name": "grain-number-input",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "grain-translate": "github:daKmoR/grain-translate",
+    "grain-input": "github:daKmoR/grain-input",
+    "validator": "^9.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "polymer serve",
+    "test": "polymer test --skip-selenium-install",
+    "lint": "eslint *.js && polymer lint -i *.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
