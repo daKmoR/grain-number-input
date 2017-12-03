@@ -25,6 +25,7 @@ export default class GrainNumberInput extends GrainInput {
     this.grainTranslate = new GrainTranslate();
 
     this.formatter = new Intl.NumberFormat(this.intlLanguage, this.intlOptions);
+    this._guessFormatter = new Intl.NumberFormat(this.intlLanguage);
     this._guessFormat();
     this._onIntlLanguageChange();
   }
@@ -35,6 +36,7 @@ export default class GrainNumberInput extends GrainInput {
     }
     if (this.lightDomRendered) {
       this.formatter = new Intl.NumberFormat(this.intlLanguage, this.intlOptions);
+      this._guessFormatter = new Intl.NumberFormat(this.intlLanguage);
       this.rawValue = this.getRawValue(this.formattedValue);
       this._guessFormat();
       this.formattedValue = this.getFormattedValue(this.rawValue);
@@ -42,7 +44,7 @@ export default class GrainNumberInput extends GrainInput {
   }
 
   _guessFormat() {
-    this._decimal = this.formatter.format(0.5).match(/[^0-9]+/)[0];
+    this._decimal = this._guessFormatter.format(0.5).match(/[^0-9]+/)[0];
     this._rawPattern = new RegExp(`[0-9\\${this._decimal}]`, 'g');
   }
 
